@@ -56,7 +56,7 @@ class FlushCachesTask extends AbstractCliTask
             case 'typo3_console':
                 return array($this->getConsoleScriptFileName($node, $application, $deployment, $options), 'cache:flush', '--force');
             case 'coreapi':
-                return array('typo3/cli_dispatch.phpsh', 'extbase', 'cacheapi:clearallcaches');
+                return array($this->getCliDispatchScriptFileName($options), 'extbase', 'cacheapi:clearallcaches');
             default:
                 return array();
         }
