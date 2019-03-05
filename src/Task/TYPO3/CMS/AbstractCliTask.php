@@ -147,7 +147,7 @@ abstract class AbstractCliTask extends \TYPO3\Surf\Domain\Model\Task implements 
     protected function packageExists($packageKey, Node $node, CMS $application, Deployment $deployment, array $options = array())
     {
         $webDirectory = isset($options['webDirectory']) ? trim($options['webDirectory'], '\\/') : '';
-        return $webDirectory !== '' ? sprintf('%s/typo3/cli_dispatch.phpsh', $webDirectory) : 'typo3/cli_dispatch.phpsh';
+        return $this->directoryExists($webDirectory . '/typo3conf/ext/' . $packageKey, $node, $application, $deployment, $options);
     }
 
     /**
